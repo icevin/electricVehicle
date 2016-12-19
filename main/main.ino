@@ -1,13 +1,21 @@
-int dir1Pin = 2;
-int dir2Pin = 3;
-int speedPin = 9;
+
+int dir1Pin = 8;
+int dir2Pin = 9;
+int speedPin = 10; 
+int controlPin = 2;
+bool toggle = 0;
+bool thisSwitch = 0;
+bool lastSwitch = 0;
+
+
 
 void setup() {
 Serial.begin(9600);
-//Define L298N Dual H-Bridge Motor Controller Pins
+//Define L298N Pins
 pinMode(dir1Pin,OUTPUT);
 pinMode(dir2Pin,OUTPUT);
 pinMode(speedPin,OUTPUT);
+pinMode(controlPin, INPUT);
 }
 
 void motor(int reqSpeed) {
@@ -22,7 +30,24 @@ digitalWrite(dir2Pin, LOW);
   }
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+int inByte;
 
+void loop() {
+lastSwitch = thisSwitch;
+thisSwitch = digitalRead(controlPin); 
+if((thisSwitch == 1) && (lastSwitch == 0))
+  toggle = !toggle;
+  
+  if(toggle) {
+    if (Serial.available() > 0) {
+        int inByte = Serial.read();
+        motor(inByte);
+        Serial.println("Motor 1 Forward @"); // Prints out “Motor 1 Forward” on the serial monitor
+        Serial.println(inByte);
+        Serial.println("   "); // Creates a blank line printed on the serial monitor
+    }
+  } else {
+    motor(0);
+  }
 }
+
