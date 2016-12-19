@@ -40,7 +40,7 @@ if((thisSwitch == 1) && (lastSwitch == 0))
   
   if(toggle) {
     if (Serial.available() > 0) {
-        int inByte = Serial.read();
+        int inByte = Serial.parseInt();
         motor(inByte);
         Serial.println("Motor 1 Forward @"); // Prints out “Motor 1 Forward” on the serial monitor
         Serial.println(inByte);
