@@ -45,6 +45,8 @@ if((thisSwitch == 1) && (lastSwitch == 0))
         Serial.println("Motor 1 Forward @"); // Prints out “Motor 1 Forward” on the serial monitor
         Serial.println(inByte);
         Serial.println("   "); // Creates a blank line printed on the serial monitor
+    } else {
+        motor(128);
     }
   } else {
     motor(0);
