@@ -1,6 +1,6 @@
-#Science Olympiad Electric  Vehicle Code
+#MCA Science Olympiad Electric Vehicle Code
 
-Testing code for 2016-2017 Science Olympiad Electric Vehicle Competition
+Testing code for 2016-2017 Middlesex County Academy Science Olympiad Electric Vehicle Competition
 
 Components:
 * Arduino Uno
