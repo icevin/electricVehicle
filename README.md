@@ -1,4 +1,4 @@
-#MCA Science Olympiad Electric Vehicle Code
+# MCA Science Olympiad Electric Vehicle Code
 
 Testing code for 2016-2017 Middlesex County Academy Science Olympiad Electric Vehicle Competition
 
@@ -10,4 +10,4 @@ Components:
 Contents:
 * Arduino sketch w/ power control via serial monitor and push-button on/off toggle
 
-#Project status: Postponed indefinitely
+# Project status: Postponed indefinitely
